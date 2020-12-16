@@ -24,18 +24,28 @@
                     <img src="kuva4.jpg" class="img-fluid" style="max-width: 640px;">
                     <img src="kuva5.jpg" class="img-fluid" style="max-width: 640px;">
                 </div>
+                <div id="virhe" style="display: none;" class="mt-5">
+                    <h1>Yritä uudelleen!</h1>
+                </div>
             </div>
-        </div>  
+        </div> 
     </div>
 
     <script>
     function kokeile(){
+        var ok = false;
         if($("#s1").val() == "talvi" || $("#s1").val() == "Talvi"){
             if($("#s2").val() == "joulu" || $("#s2").val() == "Joulu"){
                 if($("#s3").val() == "tonttu" || $("#s3").val() == "Tonttu"){
                     $("#piilo").show("slow");
+                    $("#virhe").hide();
+                    ok = true;
                 }
             }
+        }
+        if(!ok){
+            $("#piilo").hide();
+            $("#virhe").show("slow");
         }
     }
     $("#kokeile").click(function(){
