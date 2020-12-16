@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+</head>
+<body>
+
+
+    <div class="container-fluid fill"  >
+        <div class="row">
+            <div class="col">
+                <label>Rastin 1 koodi: </label> <input id="s1" type="text"> </br>
+                <label>Rastin 2 koodi: </label> <input id="s2" type="text"> </br>
+                <label>Rastin 3 koodi: </label> <input id="s3" type="text"> </br>
+                <span class="btn btn-success" id="kokeile">Kokeile!</span>
+
+                <div id="piilo" style="display: none;" class="mt-5">
+                    <h1>Oikein!</h1>
+                    <p>Löydät palkinnon täältä:</p>
+                </div>
+            </div>
+        </div>  
+    </div>
+
+    <script>
+    function kokeile(){
+        if($("#s1").val() == "talvi" || $("#s1").val() == "Talvi"){
+            if($("#s2").val() == "joulu" || $("#s2").val() == "Joulu"){
+                if($("#s3").val() == "tonttu" || $("#s3").val() == "Tonttu"){
+                    $("#piilo").show("slow");
+                }
+            }
+        }
+    }
+    $("#kokeile").click(function(){
+        kokeile();
+    });
+    $('input').keypress(function (e) {
+        if (e.which == 13) {
+            kokeile();
+            return false;
+        }
+    });
+    </script>
+
+</body>
+</html>
